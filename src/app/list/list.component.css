@@ -1,0 +1,10 @@
+.autoX{
+    background-color: rgb(222, 231, 227);
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    font-family: Helvetica, sans-serif, Arial;
+    font-size: 18px;
+    padding: 20px;
+}
