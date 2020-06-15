@@ -3,8 +3,23 @@
     margin: 5px;
     display: flex;
     justify-content: space-between;
+    padding: 20px;
+}
+
+#icon{
+    cursor: pointer;
+}
+.texto{
     color: black;
     font-family: Helvetica, sans-serif, Arial;
-    font-size: 18px;
-    padding: 20px;
+    font-size: 20px;
+}
+
+.tituloModal{
+    margin-top: 5px;
+    margin-left: 30px;
+}
+.close{
+    margin-right: 10px;
+    
 }
