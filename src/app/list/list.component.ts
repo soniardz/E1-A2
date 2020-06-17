@@ -12,11 +12,15 @@ export class ListComponent implements OnInit {
 
   autos: Automovil[];
   autoS: Automovil;
+  page: number;
+  pageSize: number;
   
 
   constructor(private modalService: NgbModal, private autoService: AutosService) { }
 
   ngOnInit() {
+    this.page=1;
+    this.pageSize=10;
     this.autoService.getAutos().subscribe((response)=>{
       this.autos=response.data;
     })

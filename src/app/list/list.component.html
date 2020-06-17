@@ -1,9 +1,10 @@
-<ng-container *ngFor="let auto of autos" >
+<ng-container *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
      <div class="autoX">
           <div class="item item-icon fas fa-eye fa-3x"  id="icon" (click)="selectAuto(content,auto)"></div>
           <div class="texto"> {{auto.descripcion}} {{auto.modelo}} </div>   
      </div>
 </ng-container>
+<ngb-pagination class="d-flex justify-content-center" [collectionSize]="40" [(page)]="page" aria-label="Default pagination" [pageSize]="pageSize"></ngb-pagination>
 
 <ng-template #content let-modal>
 
