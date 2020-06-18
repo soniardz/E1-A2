@@ -1,3 +1,4 @@
+<button type="button" class="botonAgregar" (click)="openModalAgregar()">Agregar</button>
 <table class="table">
     
     <thead class="thead-light table-striped">
@@ -19,7 +20,7 @@
         <td>{{auto.submarca}}</td>
         <td>{{auto.descripcion}}</td>
         <td><i class="fas fa-trash-alt"></i></td>
-        <td><i class="fas fa-pen"></i></td>
+        <td (click)="openModalEditar(auto)"><i class="fas fa-pen"></i></td>
       </tr>    
     </tbody>
 
