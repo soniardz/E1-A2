@@ -3,6 +3,7 @@ import { Automovil } from '../models';
 import { AutosService } from '../services/autos.service';
 import { ModalupdateComponent } from '../modalupdate/modalupdate.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmActionComponent } from '../confirm-action/confirm-action.component';
 
 @Component({
   selector: 'app-table',
@@ -29,10 +30,48 @@ export class TableComponent implements OnInit {
     const modalRef= this.modalService.open(ModalupdateComponent, {centered: true});
     modalRef.componentInstance.auto=auto;
     modalRef.componentInstance.accion='Editar';
+
+    modalRef.result.then(
+      (auto)=>{
+        this.autoService.updateAutos(auto).subscribe(response=>console.log(response))
+      }, 
+      (reason)=>{
+        console.log(reason);
+      }
+    )
   }
 
   openModalAgregar(){
     const modalRef= this.modalService.open(ModalupdateComponent, {centered: true});
     modalRef.componentInstance.accion='Agregar';
+    modalRef.result.then(
+      (auto)=>{
+        this.autoService.addAutos(auto).subscribe(response=>console.log(response))
+      },
+      (reason)=>{
+        console.log(reason);
+      }
+    )
+
   }
+
+  openModalConfirmarEliminar(auto: Automovil){
+    const modalRef=this.modalService.open(ConfirmActionComponent, {centered: true});
+    modalRef.componentInstance.auto=auto;
+    modalRef.result.then(
+      (autoTemp)=>{
+        this.autoService.deleteAutos(autoTemp).subscribe(response=>{
+          console.log("se elimino correctamente");
+          console.log(response);
+        })
+      },
+      (reason)=>{
+        console.log(reason);
+      }
+    )
+
+  }
+
+
+
 }

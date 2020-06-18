@@ -10,7 +10,7 @@ import { Automovil } from '../models';
 export class ModalupdateComponent implements OnInit {
 
   accion: String;
-  auto: Automovil;
+  auto: Automovil={} as Automovil;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
